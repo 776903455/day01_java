@@ -43,14 +43,12 @@ public class Test4 {
         Scanner scanner=new Scanner(System.in);
         System.out.println("请输入验证码：");
         String check = scanner.next();
-        for(String str:arrayList){
+
             if(arrayList.contains(check)){
                 System.out.println("校验成功");
-                break;
+
             }else {
                 System.out.println("验证失败");
-                break;
-            }
 
        }
 
