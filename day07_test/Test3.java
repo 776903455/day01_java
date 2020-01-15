@@ -13,7 +13,7 @@ public class Test3 {
         char ch=s.charAt(2);
         System.out.println("获取str字符串索引为2的char值"+ch);
         int frist=s.indexOf("o");
-        System.out.println("获取字符串\"o\"第一次出现在该字符串内的索引:"+frist);
+      /*  System.out.println("获取字符串\"o\"第一次出现在该字符串内的索引:"+frist);*/
         String str1=s.substring(6);
         System.out.println("截取字符串str,从索引6开始到结束"+str1);
         String str2=s.substring(2,7);

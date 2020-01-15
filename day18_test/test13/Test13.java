@@ -2,6 +2,7 @@ package day18_test.test13;
 
 import java.io.*;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class Test13 {
 
@@ -33,6 +34,14 @@ public class Test13 {
         for(File file1:srcfile1){
             if(file1.isFile()){
                 File dirfile=new File("d:\\test1\\"+file1.getName());
+                if(dirfile.createNewFile()==false){
+                    dirfile=new  File("d:\\test1\\"+ UUID.randomUUID().toString()+".java");
+                }
+
+
+                /*if(file1.getName().equals(dirfile.getName())){
+                    dirfile=new  File("d:\\test1\\"+ UUID.randomUUID().toString()+".java");
+                }*/
                 copyFile(file1,dirfile);
                 sum+=1;
             }else {
@@ -50,6 +59,8 @@ public class Test13 {
             while ((len=fis.read(bys))!=-1){
                 fos.write(bys,0,len);
             }
+
+
 
             fos.close();
             fis.close();
