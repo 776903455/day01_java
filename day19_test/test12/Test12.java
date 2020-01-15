@@ -15,8 +15,8 @@ public class Test12 {
 /*        File file=new File("d:\\test\\s.txt");*/
         Path path= Paths.get("d:\\test","s.txt");
         Path path1= Paths.get("d:\\test","z.txt");
-        Files.copy(path,path1);
-        FileInputStream fileInputStream=new FileInputStream("d:\\test\\s.txt");
+        /*Files.copy(path,path1);*/
+        FileInputStream fileInputStream=new FileInputStream("d:\\test\\z.txt");
        byte[] bys=new byte[1024];
        int len=0;
         while ((len=fileInputStream.read(bys))!=-1){
