@@ -21,25 +21,24 @@ public class ServerTCP {
 
             try {
                 ss = new ServerSocket(10087);
-
-                while (true) {
-
+               over: while (true) {
                     s = ss.accept();
                     br = new BufferedReader(new InputStreamReader(s.getInputStream()));
                     bw=new BufferedWriter(new OutputStreamWriter(s.getOutputStream()));
 
-                        while ((line = br.readLine()) != null) {
-
+                    while ((line = br.readLine()) != null) {
+                        if("exit".equals(line)){
+                            break over;
+                        }
                         System.out.println(line);
-
 
                         String next = scanner.next();
                         bw.write(next);
                         bw.newLine();
                         bw.flush();
                         break;
-            }
-        }
+                     }
+                 }
             } catch (IOException e) {
 
 

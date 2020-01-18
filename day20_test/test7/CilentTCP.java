@@ -41,6 +41,7 @@ public class CilentTCP {
         }finally {
             try {
                 bis.close();
+                bos.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }

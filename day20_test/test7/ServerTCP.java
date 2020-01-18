@@ -19,26 +19,31 @@ public class ServerTCP {
     }
     public static void main(String[] args) {
 
-        try {
-            ServerSocket ss=new ServerSocket(10078);
-            while (true) {
-                Socket s = ss.accept();
-                BufferedInputStream bis = new BufferedInputStream(s.getInputStream());
-                BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("d:\\test1\\" + new Date().getTime() + ".png"));
-                byte[] bys = new byte[1024];
-                int len = 0;
-                while ((len = bis.read(bys)) != -1) {
-                    System.out.println(len);
-                    bos.write(bys, 0, len);
-                    bos.flush();
-                }
 
-                OutputStream os = s.getOutputStream();
-                os.write("上传成功".getBytes());
-                os.flush();
+            new Thread(()->{
+
+                try {
+                    ServerSocket ss=new ServerSocket(10078);
+                while (true) {
+                    Socket s = ss.accept();
+                    BufferedInputStream bis = new BufferedInputStream(s.getInputStream());
+                    BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("d:\\test1\\" + new Date().getTime() + ".png"));
+                    byte[] bys = new byte[1024];
+                    int len = 0;
+                    while ((len = bis.read(bys)) != -1) {
+
+                        bos.write(bys, 0, len);
+                        bos.flush();
+                    }
+
+                    OutputStream os = s.getOutputStream();
+                    os.write("上传成功".getBytes());
+                    os.flush();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            }).start();
+
     }
 }

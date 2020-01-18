@@ -24,7 +24,6 @@ public class ClientTCP {
         Socket s = null;
         BufferedReader br=null;
         String line;
-        ServerSocket ss=null;
         Scanner scanner = new Scanner(System.in);
 
             try {
@@ -32,20 +31,20 @@ public class ClientTCP {
                /* bw = new BufferedWriter(new OutputStreamWriter(s.getOutputStream()));
                 br=new BufferedReader(new InputStreamReader(s.getInputStream()));*/
 
-                while (true) {
+               over: while (true) {
                     s = new Socket("127.0.0.1", 10087);
                     String next = scanner.next();
                     bw = new BufferedWriter(new OutputStreamWriter(s.getOutputStream()));
                     br=new BufferedReader(new InputStreamReader(s.getInputStream()));
-                    if ("exit".equals(next)) {
-                        break;
-                    }
 
                     while(next!=null) {
+                        if ("exit".equals(next)) {
+                            bw.write("exit");
+                            break over;
+                        }
                         bw.write(next);
                         bw.newLine();
                         bw.flush();
-
 
                         line = br.readLine();
                         System.out.println(line);
@@ -61,7 +60,6 @@ public class ClientTCP {
                     bw.close();
                     br.close();
                     s.close();
-                    ss.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
