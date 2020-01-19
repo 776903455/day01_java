@@ -24,8 +24,8 @@ public class Test8 {
         Class c=Class.forName(getName());
         DemoClass demoClass=(DemoClass) c.newInstance();
         Method method=c.getMethod("run");
-        Object invoke = method.invoke(demoClass);
-        System.out.println(invoke);
+        method.invoke(demoClass);
+
 
 
     }

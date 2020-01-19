@@ -1,5 +1,4 @@
-package com.shop;
-
+package day20_test.test8.shop;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,7 +9,7 @@ import java.util.*;
 public class Shopping {
     static Map<String, Product> map = null;
     static Scanner scanner = new Scanner(System.in);
-   static ArrayList<Map<String,Product>> arrayList=new ArrayList<>();
+   static ArrayList<Map<String, Product>> arrayList=new ArrayList<>();
 
     public static void showShop() {
 
@@ -66,7 +65,7 @@ public class Shopping {
         System.out.println("女装男装:");
         String path = "D:\\shop\\xie.txt";
         arrayList = readProduct(path);
-        for(Map<String,Product> maplist:arrayList){
+        for(Map<String, Product> maplist:arrayList){
             Set<String> key =maplist.keySet();
             for(String s:key){
                 Product p1=maplist.get(s);
@@ -121,7 +120,7 @@ public class Shopping {
         }
     }
 
-    public static ArrayList<Map<String,Product>> readProduct(String path) {
+    public static ArrayList<Map<String, Product>> readProduct(String path) {
         FileInputStream fis = null;
         ObjectInputStream ois = null;
 

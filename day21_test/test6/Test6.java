@@ -23,7 +23,8 @@ public Object getProperty(Object obj, String propertyName){ 
         Class c=MyObject.class;
         MyObject myObject=(MyObject) c.newInstance();
         setProperty(myObject, "propertyName", "王五");
-        System.out.println(getProperty(myObject,"propertyName"));
+       /* System.out.println(getProperty(myObject,"propertyName"));*/
+        System.out.println(myObject.getPropertyName());
     }
 
     public static void setProperty(MyObject mo, String propertyName, Object value) throws IllegalAccessException, InstantiationException, NoSuchFieldException {

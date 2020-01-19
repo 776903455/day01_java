@@ -20,7 +20,7 @@ public class Test5 {
             ShowS ss=(ShowS) c1.newInstance();
            Method method= c1.getMethod("showString");
            Object o= method.invoke(ss);
-            System.out.println(o);
+
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

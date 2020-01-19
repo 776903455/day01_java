@@ -1,5 +1,7 @@
 package day21_test.test2;
 
+import org.junit.Test;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -23,8 +25,14 @@ public class Test2 {
 
 
     }
+    @Test
+    public void fun2(){
+//        System.out.println("1+1="+1+1);
 
+        short b=2;
 
-
+    }
 
 }
+
+

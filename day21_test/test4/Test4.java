@@ -18,7 +18,7 @@ public class Test4 {
         Method method=c.getMethod("show", String.class);
         /*调用method对象的invoke方法指明那个对象的那个方法，并赋值*/
         Object lyh = method.invoke(ss, "lyh");
-        System.out.println(lyh);
+
 
     }
 
